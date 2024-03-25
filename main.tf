@@ -202,7 +202,7 @@ resource "aws_db_instance" "default" {
 }
 
 resource "aws_db_subnet_group" "default" {
-  name       = "vaheed"
+  name       = "main"
   subnet_ids = [aws_subnet.database-subnet-1.id, aws_subnet.database-subnet-2.id]
 
   tags = {
@@ -360,7 +360,7 @@ output "lb_dns_name" {
 
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "devops6pmam"  
+  bucket = "devops6aspmam"  
 
   acl    = "private"  
   versioning {
