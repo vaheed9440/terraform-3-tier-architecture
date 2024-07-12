@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.37.0"
+      version = "5.57.0"
     }
   }
 }
@@ -134,7 +134,7 @@ resource "aws_route_table_association" "b" {
 
 #Create EC2 Instance
 resource "aws_instance" "webserver1" {
-  ami                    = "ami-0ad21ae1d0696ad58"
+  ami                    = "ami-0d1e92463a5acf79d"
   instance_type          = "t2.micro"
   availability_zone      = "ap-south-1a"
   key_name               = "devops1"
@@ -143,12 +143,12 @@ resource "aws_instance" "webserver1" {
   user_data              = "${file("apache.sh")}"
 
   tags = {
-    Name = "Web Server"
+    Name = "Web Server-1"
   }
 }
 
 resource "aws_instance" "webserver2" {
-  ami                    = "ami-0ad21ae1d0696ad58"
+  ami                    = "ami-0d1e92463a5acf79d"
   instance_type          = "t2.micro"
   availability_zone      = "ap-south-1b"
   key_name               = "devops1"
@@ -157,13 +157,13 @@ resource "aws_instance" "webserver2" {
   user_data              = "${file("apache.sh")}"
 
   tags = {
-    Name = "Web Server"
+    Name = "Web Server-2"
   }
 }
 
 #Create EC2 Instance
 resource "aws_instance" "appserver1" {
-  ami                    = "ami-0ad21ae1d0696ad58"
+  ami                    = "ami-0d1e92463a5acf79d"
   instance_type          = "t2.micro"
   availability_zone      = "ap-south-1a"
   key_name               = "devops1"
@@ -175,7 +175,7 @@ resource "aws_instance" "appserver1" {
 }
 
 resource "aws_instance" "appserver2" {
-  ami                    = "ami-0ad21ae1d0696ad58"
+  ami                    = "ami-0d1e92463a5acf79d"
   instance_type          = "t2.micro"
   availability_zone      = "ap-south-1b"
   key_name               = "devops1"
@@ -188,17 +188,14 @@ resource "aws_instance" "appserver2" {
 }
 
 resource "aws_db_instance" "default" {
-  allocated_storage      = 10
-  db_subnet_group_name   = aws_db_subnet_group.default.id
-  engine                 = "mysql"
-  engine_version         = "8.0.35"
-  instance_class         = "db.t3.micro"
-  multi_az               = false
-  db_name                = "mydb"
-  username               = "raham"
-  password               = "Rahamshaik#444555"
-  skip_final_snapshot    = true
-  vpc_security_group_ids = [aws_security_group.database-sg.id]
+  allocated_storage    = 10
+  db_name              = "mydb"
+  engine               = "mysql"
+  engine_version       = "8.0.35"
+  instance_class       = "db.t3.micro"
+  username             = "admin"
+  password             = "Raham#123568i"
+  skip_final_snapshot  = true
 }
 
 resource "aws_db_subnet_group" "default" {
@@ -359,12 +356,12 @@ output "lb_dns_name" {
 }
 
 
-resource "aws_s3_bucket" "my_bucket" {
-  bucket = "vascszcce7446lkk875245"  
+resource "aws_s3_bucket" "example" {
+  bucket = "rahamtestbycketterckkkddra7788abcdefxxc"
 
-  acl    = "private"  
-  versioning {
-    enabled = true 
+  tags = {
+    Name        = "rahamtestbycketterra7788abcdefxxc"
+    Environment = "Dev"
   }
 }
 
@@ -380,5 +377,5 @@ default = ["user1", "user2", "user3", "user4"]
 }
 
 resource "aws_iam_group" "two" {
-name = "devops1withawsbyraham"
+name = "devopswithawsbyrahamshaik"
 }
