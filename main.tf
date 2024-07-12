@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.37.0"
+      version = "5.57.0"
     }
   }
 }
@@ -191,7 +191,7 @@ resource "aws_db_instance" "default" {
   allocated_storage      = 10
   db_subnet_group_name   = aws_db_subnet_group.default.id
   engine                 = "mysql"
-  engine_version         = "8.0.28"
+  engine_version         = "8.0.35"
   instance_class         = "db.t3.micro"
   multi_az               = false
   db_name                = "mydb"
