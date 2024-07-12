@@ -360,7 +360,7 @@ output "lb_dns_name" {
 
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "vascszccewheed9487446lkk875245"  
+  bucket = "vascszcce7446lkk875245"  
 
   acl    = "private"  
   versioning {
