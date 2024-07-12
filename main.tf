@@ -9,7 +9,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 # Create a VPC
@@ -360,7 +360,7 @@ output "lb_dns_name" {
 
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "vascszccewheed9487446875245"  
+  bucket = "vascszccewheed9487446lkk875245"  
 
   acl    = "private"  
   versioning {
